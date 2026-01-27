@@ -5,6 +5,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
+import urlshort.com.backend.Entity.Url;
 import urlshort.com.backend.Service.UrlService;
 import urlshort.com.backend.dto.CreateUrlRequest;
 import urlshort.com.backend.dto.UrlResponse;
@@ -31,6 +33,13 @@ public class UrlController {
     public ResponseEntity<UrlResponse> getUrlDetails(@PathVariable String shortCode){
         UrlResponse response = urlService.getUrlDetails(shortCode);
         return ResponseEntity.ok(response);
+    }
+
+    //redirect catre url original
+    @GetMapping("/{shortCode}")
+    public RedirectView redirectToOriginalUrl(@PathVariable String shortCode){
+        Url url = urlService.getOriginalUrl(shortCode);
+        return new RedirectView(url.getOriginalUrl());
     }
 
     //extrage ip-ul clientului, pt rate limiting

@@ -52,7 +52,7 @@ public class UrlService {
             throw new UrlNotFoundException("URL expirat");
         }
 
-        if(url.getIsActive()){
+        if(!url.getIsActive()){
             throw new UrlNotFoundException("URL inactiv");
         }
 

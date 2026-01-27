@@ -40,7 +40,7 @@ public class Url {
         this.originalUrl = originalUrl;
         this.createdByIp = createdByIp;
         this.createdAt = LocalDateTime.now();
-        this.expiresAt = LocalDateTime.now();
+        this.expiresAt = LocalDateTime.now().plusDays(30);
         this.clickCount = 0L;
         this.isActive = true;
     }
