@@ -10,6 +10,7 @@ import urlshort.com.backend.Exception.UrlNotFoundException;
 import urlshort.com.backend.Repository.UrlRepository;
 import urlshort.com.backend.dto.CreateUrlRequest;
 import urlshort.com.backend.dto.UrlResponse;
+import urlshort.com.backend.util.Base62Encoder;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -82,9 +83,9 @@ public class UrlService {
         }
     }
 
-    //genereaza un shortcode simplificat (temporar)
+    //genereaza un shortcode de 6 caractere
     private String generateShortCode(){
-        return Long.toString(System.currentTimeMillis(), 36).substring(0, 7);
+        return Base62Encoder.generateRandomCode(6);
     }
 
     private UrlResponse mapToResponse(Url url){
