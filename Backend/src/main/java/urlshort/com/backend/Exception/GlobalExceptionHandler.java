@@ -44,6 +44,20 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
+    //handler pt RateLimitExceededException
+    //http status - 429 TOO MANY REQUESTS
+    //clientul a depasit limita si trebuie sa astepte
+    @ExceptionHandler(RateLimitExceededException.class)
+    public ResponseEntity<ErrorResponse> handleRateLimitExceeded(RateLimitExceededException ex){
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.TOO_MANY_REQUESTS.value(),
+                "RATE_LIMIT_EXCEEDED",
+                ex.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(error);
+    }
+
     //handler pt validarea DTO-urilor, cand @Valid esueaza, Spring arunca MethodArgumentNotValidException
     //daca originalUrl este gol - @NotBlank esueaza
     //http status 400 BAD REQUEST
