@@ -1,0 +1,72 @@
+.url-display-container {
+  margin-top: 30px;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+}
+
+.url-display-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.url-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.short-url-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  color: #333;
+}
+
+.copy-button {
+  padding: 12px 24px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.copy-button:hover {
+  background: #218838;
+}
+
+.url-info {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.url-info p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.test-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.test-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.test-link a:hover {
+  text-decoration: underline;
+}

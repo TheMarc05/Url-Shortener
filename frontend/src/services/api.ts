@@ -14,7 +14,7 @@ export const createShortUrl = async (
 ): Promise<UrlResponse> => {
   try {
     const request: CreateUrlRequest = { originalUrl };
-    const response = await api.post<UrlResponse>("/urls", { request });
+    const response = await api.post<UrlResponse>("/urls", request);
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<ApiError>;
